@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BikeGO!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <style>
+      html, body, #root {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      /* Custom scrollbar for webkit */
+      ::-webkit-scrollbar {
+        width: 6px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #f1f1f1; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #fb923c; 
+        border-radius: 3px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #f97316; 
+      }
+      /* Leaflet container fix */
+      .leaflet-container {
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+      }
+      
+      /* Dark Mode Map Filter - Orange Roads Cyberpunk Style */
+      /* We target the tile pane specifically to not colorize the markers */
+      .map-tiles-dark {
+        filter: sepia(100%) saturate(400%) hue-rotate(-30deg) contrast(1.1) brightness(0.8) !important;
+      }
+
+      /* User Location Marker Styles */
+      .user-location-marker {
+        background: transparent;
+        border: none;
+      }
+      .user-dot {
+        width: 16px;
+        height: 16px;
+        background-color: #3b82f6; /* Blue-500 */
+        border: 2px solid white;
+        border-radius: 50%;
+        box-shadow: 0 0 4px rgba(0,0,0,0.3);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 20;
+      }
+      .user-pulse {
+        width: 40px;
+        height: 40px;
+        background-color: rgba(59, 130, 246, 0.4);
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation: pulse-ring 2s infinite;
+        z-index: 10;
+      }
+      @keyframes pulse-ring {
+        0% { transform: translate(-50%, -50%) scale(0.5); opacity: 1; }
+        100% { transform: translate(-50%, -50%) scale(1.5); opacity: 0; }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "leaflet": "https://esm.sh/leaflet@^1.9.4",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-leaflet": "https://esm.sh/react-leaflet@^5.0.0"
+  }
+}
+</script>
+</head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
